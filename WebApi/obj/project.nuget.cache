@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "cRP35FXRi3X+dmeeFUfYYEZR7DtyMb3FI/qB6IFsBSbaC1SvxZNCCZtzEEWQUND71Ri8ccZbpBqmyutB375O+Q==",
+  "success": true,
+  "projectFilePath": "D:\\gitrepos\\TesodevBeCase\\WebApi\\WebApi.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ghjk2\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.15\\microsoft.netcore.app.host.win-x64.5.0.15.nupkg.sha512"
+  ],
+  "logs": []
+}
