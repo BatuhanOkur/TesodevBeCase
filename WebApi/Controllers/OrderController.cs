@@ -45,5 +45,14 @@ namespace WebApi.Controllers
         {
             orderManager.DeleteOrder(id);
         }
+
+
+        [HttpPut]
+        public Order ChangeStatus([FromBody] Order order)
+        {
+            dynamic orderstatus = order.Status;
+            order.Status = !orderstatus;
+            return orderManager.UpdateOrder(order);
+        }
     }
 }
