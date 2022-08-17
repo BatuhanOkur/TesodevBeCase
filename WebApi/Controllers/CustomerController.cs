@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Concrete;
 using EntityLayer.Entities;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace WebApi.Controllers
 {
-    [Route("webapi/[controller]s")]
+    [Route("api/[controller]")]
     [ApiController]
     public class CustomerController : ControllerBase
     {
