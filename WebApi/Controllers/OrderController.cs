@@ -42,7 +42,6 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
-        [Route("GetAll")]
         public List<Order> GetAll()
         {
             return _orderService.GetOrders();
