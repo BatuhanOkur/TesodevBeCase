@@ -80,3 +80,6 @@ D:\gitrepos\TesodevBeCase\WebApi\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger
 D:\gitrepos\TesodevBeCase\WebApi\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\gitrepos\TesodevBeCase\WebApi\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 D:\gitrepos\TesodevBeCase\WebApi\bin\Debug\net5.0\ref\WebApi.dll
+D:\gitrepos\TesodevBeCase\WebApi\bin\Debug\net5.0\FluentValidation.dll
+D:\gitrepos\TesodevBeCase\WebApi\bin\Debug\net5.0\FluentValidation.AspNetCore.dll
+D:\gitrepos\TesodevBeCase\WebApi\bin\Debug\net5.0\FluentValidation.DependencyInjectionExtensions.dll

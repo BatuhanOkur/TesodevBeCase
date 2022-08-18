@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "X2TZjw45IV2O6gGRgny/Z0A00v58Qk+TZ3IlvKVPoHn54OnMT3t8bCrueszvTFV7csRhZQCMxGfK9BavR4SGKg==",
+  "dgSpecHash": "9a6BWsgj+cQzPU9U0Gp/hmKq/Y9tozORycBELWpqpewedXV/0U0xdFMUKScpEeLgROKcK9p9DOMWJ6QsQvRkVg==",
   "success": true,
   "projectFilePath": "D:\\gitrepos\\TesodevBeCase\\WebApi\\WebApi.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\ghjk2\\.nuget\\packages\\fluentvalidation\\11.2.0\\fluentvalidation.11.2.0.nupkg.sha512",
+    "C:\\Users\\ghjk2\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.2.1\\fluentvalidation.aspnetcore.11.2.1.nupkg.sha512",
+    "C:\\Users\\ghjk2\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.2.0\\fluentvalidation.dependencyinjectionextensions.11.2.0.nupkg.sha512",
     "C:\\Users\\ghjk2\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\ghjk2\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\ghjk2\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",
