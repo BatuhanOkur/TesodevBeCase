@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Abstract;
+using DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete;
 using EntityLayer.Entities;
 using System;
@@ -11,30 +12,34 @@ namespace BusinessLayer.Concrete
 {
     public class ProductManager : IProductService
     {
-        ProductRepository productRepository = new ProductRepository();
+        IProductRepository _productRepository;
+        public ProductManager()
+        {
+            _productRepository = new ProductRepository();
+        }
         public Product CreateProduct(Product product)
         {
-            return productRepository.CreateProduct(product);
+            return _productRepository.CreateProduct(product);
         }
 
         public void DeleteProduct(Guid id)
         {
-            productRepository.DeleteProduct(id);
+            _productRepository.DeleteProduct(id);
         }
 
         public Product GetProduct(Guid id)
         {
-            return productRepository.GetProduct(id);
+            return _productRepository.GetProduct(id);
         }
 
         public List<Product> GetProducts()
         {
-            return productRepository.GetProducts();
+            return _productRepository.GetProducts();
         }
 
         public Product UpdateProduct(Product product)
         {
-            return productRepository.UpdateProduct(product);
+            return _productRepository.UpdateProduct(product);
         }
     }
 }
