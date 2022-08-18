@@ -1,4 +1,5 @@
-﻿using BusinessLayer.Concrete;
+﻿using BusinessLayer.Abstract;
+using BusinessLayer.Concrete;
 using EntityLayer.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -9,41 +10,46 @@ using System.Threading.Tasks;
 
 namespace WebApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("webapi/[controller]s")]
     [ApiController]
     public class OrderController : ControllerBase
     {
-        OrderManager orderManager = new OrderManager();
+        IOrderService _orderService;
+
+        public OrderController()
+        {
+            _orderService = new OrderManager();
+        }
 
         [HttpPost]
         public Order Create([FromBody] Order order)
         {
-            return orderManager.CreateOrder(order);
+            return _orderService.CreateOrder(order);
         }
 
         [HttpGet]
         [Route("GetAll")]
         public List<Order> GetAll()
         {
-            return orderManager.GetOrders();
+            return _orderService.GetOrders();
         }
 
         [HttpGet("{id}")]
         public Order Get(Guid id)
         {
-            return orderManager.GetOrder(id);
+            return _orderService.GetOrder(id);
         }
 
         [HttpPut]
         public Order Update([FromBody] Order order)
         {
-            return orderManager.UpdateOrder(order);
+            return _orderService.UpdateOrder(order);
         }
 
         [HttpDelete("{id}")]
         public void Delete(Guid id)
         {
-            orderManager.DeleteOrder(id);
+            _orderService.DeleteOrder(id);
         }
 
 
@@ -52,7 +58,7 @@ namespace WebApi.Controllers
         {
             dynamic orderstatus = order.Status;
             order.Status = !orderstatus;
-            return orderManager.UpdateOrder(order);
+            return _orderService.UpdateOrder(order);
         }
     }
 }
