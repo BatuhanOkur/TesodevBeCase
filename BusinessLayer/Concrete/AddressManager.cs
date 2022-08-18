@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Abstract;
+using DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete;
 using EntityLayer.Entities;
 using System;
@@ -11,30 +12,36 @@ namespace BusinessLayer.Concrete
 {
     public class AddressManager : IAddressService
     {
-        AddressRepository addressRepository = new AddressRepository();
+        IAddressRepository _addressRepository;
+
+        public AddressManager()
+        {
+            _addressRepository = new AddressRepository();
+        }
+
         public Address CreateAddress(Address address)
         {
-            return addressRepository.CreateAddress(address);
+            return _addressRepository.CreateAddress(address);
         }
 
         public void DeleteAddress(Guid id)
         {
-            addressRepository.DeleteAddress(id);
+            _addressRepository.DeleteAddress(id);
         }
 
         public Address GetAddress(Guid id)
         {
-            return addressRepository.GetAddress(id);
+            return _addressRepository.GetAddress(id);
         }
 
         public List<Address> GetAddresses()
         {
-            return addressRepository.GetAddresses();
+            return _addressRepository.GetAddresses();
         }
 
         public Address UpdateAddress(Address address)
         {
-            return addressRepository.UpdateAddress(address);
+            return _addressRepository.UpdateAddress(address);
         }
     }
 }
