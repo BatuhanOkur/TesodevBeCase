@@ -7,6 +7,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BusinessLayer.ValidationRules;
+using FluentValidation.Results;
 
 namespace WebApi.Controllers
 {
@@ -22,9 +24,20 @@ namespace WebApi.Controllers
         }
 
         [HttpPost]
-        public Customer Create([FromBody] Customer customer)
+        public IActionResult Create([FromBody] Customer customer)
         {
-            return _customerService.CreateCustomer(customer);
+            CustomerValidator customerValidator = new CustomerValidator();
+            ValidationResult results = customerValidator.Validate(customer);
+
+            if (results.IsValid)
+            {
+                _customerService.CreateCustomer(customer);
+                return Ok(results);
+            }
+            else
+            {
+                return BadRequest(results.Errors);
+            }
         }
 
         [HttpGet]
@@ -41,9 +54,20 @@ namespace WebApi.Controllers
         }
 
         [HttpPut]
-        public Customer Update([FromBody] Customer customer)
+        public IActionResult Update([FromBody] Customer customer)
         {
-            return _customerService.UpdateCustomer(customer);
+            CustomerValidator customerValidator = new CustomerValidator();
+            ValidationResult results = customerValidator.Validate(customer);
+
+            if (results.IsValid)
+            {
+                _customerService.UpdateCustomer(customer);
+                return Ok(results);
+            }
+            else
+            {
+                return BadRequest(results.Errors);
+            }
         }
 
         [HttpDelete("{id}")]
