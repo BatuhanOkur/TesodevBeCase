@@ -35,6 +35,8 @@
         "dependencies": {
           "BusinessLayer": "1.0.0",
           "EntityLayer": "1.0.0",
+          "FluentValidation": "11.2.0",
+          "FluentValidation.AspNetCore": "11.2.1",
           "Microsoft.EntityFrameworkCore": "5.0.9",
           "Microsoft.EntityFrameworkCore.Design": "5.0.9",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.9",
