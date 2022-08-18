@@ -5,8 +5,10 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using BusinessLayer.ValidationRules;
 using System.Linq;
 using System.Threading.Tasks;
+using FluentValidation.Results;
 
 namespace WebApi.Controllers
 {
@@ -22,9 +24,21 @@ namespace WebApi.Controllers
         }
 
         [HttpPost]
-        public Order Create([FromBody] Order order)
+        public IActionResult Create([FromBody] Order order)
         {
-            return _orderService.CreateOrder(order);
+            OrderValidator orderValidator = new OrderValidator();
+            ValidationResult results = orderValidator.Validate(order);
+
+            if(results.IsValid)
+            {
+                _orderService.CreateOrder(order);
+                return Ok(results);
+            }
+            else
+            {
+                return BadRequest(results.Errors);
+            }
+            
         }
 
         [HttpGet]
@@ -41,9 +55,20 @@ namespace WebApi.Controllers
         }
 
         [HttpPut]
-        public Order Update([FromBody] Order order)
+        public IActionResult Update([FromBody] Order order)
         {
-            return _orderService.UpdateOrder(order);
+            OrderValidator orderValidator = new OrderValidator();
+            ValidationResult results = orderValidator.Validate(order);
+
+            if (results.IsValid)
+            {
+                _orderService.UpdateOrder(order);
+                return Ok(results);
+            }
+            else
+            {
+                return BadRequest(results.Errors);
+            }
         }
 
         [HttpDelete("{id}")]
