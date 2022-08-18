@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Abstract;
+using DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete;
 using EntityLayer.Entities;
 using System;
@@ -11,30 +12,35 @@ namespace BusinessLayer.Concrete
 {
     public class OrderManager : IOrderService
     {
-        OrderRepository orderRepository = new OrderRepository();
+        IOrderRepository _orderRepository;
+
+        public OrderManager()
+        {
+            _orderRepository = new OrderRepository();
+        }
         public Order CreateOrder(Order order)
         {
-            return orderRepository.CreateOrder(order);
+            return _orderRepository.CreateOrder(order);
         }
 
         public void DeleteOrder(Guid id)
         {
-            orderRepository.DeleteOrder(id);
+            _orderRepository.DeleteOrder(id);
         }
 
         public Order GetOrder(Guid id)
         {
-            return orderRepository.GetOrder(id);
+            return _orderRepository.GetOrder(id);
         }
 
         public List<Order> GetOrders()
         {
-            return orderRepository.GetOrders();
+            return _orderRepository.GetOrders();
         }
 
         public Order UpdateOrder(Order order)
         {
-            return orderRepository.UpdateOrder(order);
+            return _orderRepository.UpdateOrder(order);
         }
     }
 }
